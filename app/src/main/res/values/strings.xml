@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">PasitosAPP</string>
+    <string name="google_maps_key"
+        templateMergeStrategy="preserve"
+        translatable="false">
+        AIzaSyBaLEQ2sSc5W_zkXJvf6nN40JaBhEyo3_8
+    </string>
+    <string name="txtBoton1">Ir a Studium</string>
+    <string name="txtBoton2">Volver a Studium</string>
+    <string name="txtBoton3">Marcador</string>
+</resources>
