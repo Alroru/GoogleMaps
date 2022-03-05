@@ -56,8 +56,10 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.mapa);
         mapFragment.getMapAsync(this);
+
         datosController=new DatosController(MainActivity.this);
         list=new ArrayList<>();
 
@@ -76,7 +78,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
-
+        //Mapa incial
         mapa = googleMap;
         mapa.setMapType(GoogleMap.MAP_TYPE_NORMAL);
         mapa.getUiSettings().setZoomControlsEnabled(true);
@@ -105,7 +107,7 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
 
 
     private void locationStart()
-    {
+    {//Localizacion inicial
         LocationManager mlocManager = (LocationManager)
                 getSystemService(Context.LOCATION_SERVICE);
         Localizacion Local = new Localizacion();
@@ -124,12 +126,12 @@ public class MainActivity extends FragmentActivity implements OnMapReadyCallback
             return;
         }
 
-        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 20000, 0, (LocationListener)
+        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 300000, 0, (LocationListener)
                 Local);
 
     }
 
-    public void setLocation(Location loc)
+    public void setLocation(Location loc)//Repite cada cuando seteamos localizacion
     {   actualizacionMarcadores();
 
         if (loc.getLatitude() != 0.0 && loc.getLongitude() != 0.0)
